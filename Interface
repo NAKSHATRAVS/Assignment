@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+interface Payment {
+    void pay(double amount);
+}
+
+class CreditCard implements Payment {
+    public void pay(double amount) {
+        System.out.println("Paid " + amount + " using Credit Card.");
+    }
+}
+
+class PayPal implements Payment {
+    public void pay(double amount) {
+        System.out.println("Paid " + amount + " using PayPal.");
+    }
+}
+
+class Cash implements Payment {
+    public void pay(double amount) {
+        System.out.println("Paid " + amount + " in Cash.");
+    }
+}
+
+public class PaymentSystem {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int choice;
+        System.out.println("Select Payment Method: 1. CreditCard 2. PayPal 3. Cash");
+        choice = sc.nextInt();
+        System.out.print("Enter Amount: ");
+        double amt = sc.nextDouble();
+
+        Payment p;
+        switch (choice) {
+            case 1: p = new CreditCard(); break;
+            case 2: p = new PayPal(); break;
+            case 3: p = new Cash(); break;
+            default: System.out.println("Invalid!"); return;
+        }
+        p.pay(amt);
+
+        sc.close();
+    }
+}
