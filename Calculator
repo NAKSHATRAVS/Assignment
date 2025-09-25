@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+class Calculator {
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public double add(double a, double b) {
+        return a + b;
+    }
+
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }
+}
+
+public class TestCalculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Calculator calc = new Calculator();
+
+        System.out.print("Enter two integers: ");
+        int x = sc.nextInt(), y = sc.nextInt();
+        System.out.println("Sum of two ints: " + calc.add(x, y));
+
+        System.out.print("Enter two doubles: ");
+        double d1 = sc.nextDouble(), d2 = sc.nextDouble();
+        System.out.println("Sum of two doubles: " + calc.add(d1, d2));
+
+        System.out.print("Enter three integers: ");
+        int a = sc.nextInt(), b = sc.nextInt(), c = sc.nextInt();
+        System.out.println("Sum of three ints: " + calc.add(a, b, c));
+
+        sc.close();
+    }
+}
